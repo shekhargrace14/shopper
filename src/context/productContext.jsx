@@ -1,4 +1,6 @@
-import data from '../data/data.json';
+// import data from '../data/data.json';
+const data = "https://dummyjson.com/products";
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 
@@ -6,10 +8,27 @@ const ProductContext = createContext();
 
 const ProductProvider = ({children})=>{
     const [products, setProducts]= useState([]);
-    console.log(products)
+
+
+    const getProductsData = async (url) =>{
+        try{
+            const res = await axios.get(url)
+            const productData = await res.data  
+            if(productData.products.image == "null"){
+                return
+            }else{
+                setProducts(productData.products)
+            }
+
+        }catch(error){
+            console.log(error)
+        }
+    }
+    
     useEffect(()=>{
-        setProducts(data)
+        getProductsData(data)
     },[])
+    console.log(products)
 
     return(
         <ProductContext.Provider value={products}>{children}</ProductContext.Provider>

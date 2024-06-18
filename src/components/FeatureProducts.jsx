@@ -13,18 +13,18 @@ const FeatureProducts = () => {
 
             </div>
         </div>
-        <div className='row grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4'>
+        <div className='row grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4'>
             {
-                products.map((item,index)=>(
+                products.slice(0,12).reverse().map((item,index)=>(
                     <Link key={index} to={`/singleproduct/${item.id}`}>
                     {/* <Link key={index} to="SingleProduct.jsx"> */}
                         <div className='bg-[#f7f7f7] column rounded-2xl border-gray-100 border-2 p-2' >
-                            <div className='image flex justify-center'>
-                                <img className='w-[70%]' src={item.productImage} />
-                            </div>
+                            <figure className='image flex justify-center h-[21vh]'>
+                                <img className='' src={item.images[1] || item.images} />
+                            </figure>
                             <div className='info text-center'>
-                                <h3>{item.title}</h3>
-                                <p className='text-gray-500'>{item.quantity} items</p>
+                                <h3 className='line-clamp-1'>{item.title}</h3>
+                                <p className='text-gray-500 capitalize'>{item.category} </p>
                             </div>
                         </div>
                     </Link>

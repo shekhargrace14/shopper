@@ -8,11 +8,11 @@ const Footer=()=>{
                 <div className="row grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
 
                     <div className="column ">
-                        <img src="assets/logo.svg"/>
-                        <p>Pellentesque posuere orci lobortis</p>
+                        <img className="w-[50%]" src="../assets/logo.png"/>
+                        <p className="my-4">Pellentesque posuere orci lobortis</p>
                         <div>
                             <FaLocationPin className="inline text-primary-color"/>
-                            <p className="inline"> <span className="font-semibold"> Address: </span> 5171 W Campbell Ave undefined Kent, <br/> Utah 53127 United States</p>
+                            <p className="inline"> <span className="font-semibold"> Address: </span> 5171 W Campbell Ave undefined Kent, Utah 53127 United States</p>
                         </div>
                         
                     </div>

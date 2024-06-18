@@ -2,10 +2,10 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 const CTA = () =>{
     return(
-      <section className="bg-[url('../public/assets/bg/cta.png')]  bg-cover bg-no-repeat sm:bg-right bg-center md:py-16 py-8  md:px-24 px-4 rounded-2xl mx-4" >
+      <section className="bg-[url('../public/assets/bg/bg-img-4.jpg')]  bg-cover bg-no-repeat bg-bottom md:py-16 py-8  md:px-24 px-4 rounded-2xl mx-4" >
         <div className="container mx-auto top h-fit ">
           <div className='row flex'>
-            <div className='column sm:w-8/12 w-12/12'>
+            <div className='column sm:w-6/12 w-12/12'>
               <h3 className='lg:text-4xl sm:text-3xl text-2xl   font-primary-font font-black text-[#253d4e]'>Stay home & get your daily needs from our shop</h3>
               <p className='lg:text-2xl text-1xl text-gray-600 py-8'> Start Your Daily Shopping with <span className="text-primary-color"> Nest Mart</span></p>
               <form className='flex justify-between items-center pl-6 bg-white rounded-full sm:w-[70%] md:mt-8'>
