@@ -7,19 +7,19 @@ const RelatedProducts = () =>{
     const  products = useContext(ProductContext)
 
     return(
-        <section className='lg:container lg:mx-auto py-8 '>
+        <section className='lg:container lg:mx-auto py-8 mx-4'>
         <div className='row mb-8'>
             <div className='column'>
                 <h2 className='lg:text-3xl sm:text-3xl text-2xl font-primary-font font-black text-[#253d4e]'>Related Products</h2>
             </div>
         </div>
-        <div className='row grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4'>
+        <div className='row grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4'>
             {   
                 products.slice(0,6).map((item)=>(
                     <Link key={item.id} to={`/singleproduct/${item.id}`}>
 
-                    <div className='column rounded-2xl border-gray-100 border-2 overflow-hidden' >
-                    <figure className='image flex justify-center relative h-[22vh]'>
+                    <div className='column rounded-2xl border-gray-100 border-2 overflow-hidden'>
+                        <figure className='image flex justify-center relative h-[22vh]'>
                             <span className="bg-red-600 text-white text-xs h-fit py-1 px-2 absolute top-0 left-0 rounded-br-2xl" >-15%</span>
                             <img className='' src={item.images[1] || item.images} />
                         </figure>

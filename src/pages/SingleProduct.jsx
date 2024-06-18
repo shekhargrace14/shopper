@@ -42,7 +42,7 @@ const SingleProduct = () => {
             <hr className="mb-4"></hr>
             <div className="lg:container lg:m-auto grid lg:grid-cols-[10fr,2fr] grid-flow-row  gap-4 px-4 ">
                 <main>
-                    <div className="row grid md:grid-cols-2 gap-4 my-16">
+                    <div className="row grid md:grid-cols-2 gap-4 md:mb-16 ">
                         
                         <figure className="column flex justify-center items-center">
                             <img className="sm:w-[50%] md:w-[80%]  " src={images[1] || images} />   
