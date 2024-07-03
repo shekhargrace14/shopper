@@ -50,7 +50,7 @@ const Home = () => {
       </section>
 
       <PopularProduct/>
-      <Deal/>
+      {/* <Deal/> */}
       <CTA/>
       <Usps/>
 

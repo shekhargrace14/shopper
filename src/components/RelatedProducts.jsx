@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const RelatedProducts = () =>{
-    const  products = useContext(ProductContext)
+    const  {state:{products}} = useContext(ProductContext)
 
     return(
         <section className='lg:container lg:mx-auto py-8 mx-4'>
@@ -21,7 +21,7 @@ const RelatedProducts = () =>{
                     <div className='column rounded-2xl border-gray-100 border-2 overflow-hidden'>
                         <figure className='image flex justify-center relative h-[22vh]'>
                             <span className="bg-red-600 text-white text-xs h-fit py-1 px-2 absolute top-0 left-0 rounded-br-2xl" >-15%</span>
-                            <img className='' src={item.images[1] || item.images} />
+                            <img className='' src={item.productImage} />
                         </figure>
                         <div className='info p-4'>
                             <div className="flex justify-between">

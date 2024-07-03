@@ -4,7 +4,8 @@ import {ProductContext} from "../context/productContext"
 import { useContext } from 'react';
 
 const FeatureProducts = () => {
-    const products = useContext(ProductContext)    
+    const {state:{products},dispatch}  = useContext(ProductContext)    
+    console.log(products)
   return (
     <section className='lg:container lg:mx-auto py-8 px-4'>
         <div className='row mb-8'>
@@ -15,12 +16,12 @@ const FeatureProducts = () => {
         </div>
         <div className='row grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4'>
             {
-                products.slice(0,12).reverse().map((item,index)=>(
+                products.map((item,index)=>(
                     <Link key={index} to={`/singleproduct/${item.id}`}>
                     {/* <Link key={index} to="SingleProduct.jsx"> */}
                         <div className='bg-[#f7f7f7] column rounded-2xl border-gray-100 border-2 p-2' >
                             <figure className='image flex justify-center h-[21vh]'>
-                                <img className='' src={item.images[1] || item.images} />
+                                <img className='' src={item.productImage || item.productImage} />
                             </figure>
                             <div className='info text-center'>
                                 <h3 className='line-clamp-1'>{item.title}</h3>
