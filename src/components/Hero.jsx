@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaRegPaperPlane } from 'react-icons/fa'
 
-const Header = () => {
+const Hero = () => {
   return (
     <section className="bg-[url('../public/assets/bg/bg-img-4.jpg')]  bg-cover bg-no-repeat bg-bottom md:py-16 py-8  md:px-24 px-4 rounded-2xl mx-4" >
     <div className="container mx-auto top h-fit ">
@@ -26,4 +26,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Hero

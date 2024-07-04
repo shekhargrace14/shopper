@@ -4,8 +4,8 @@ import {ProductContext} from "../context/productContext"
 import { useContext } from 'react';
 
 const FeatureProducts = () => {
-    const {state:{products},dispatch}  = useContext(ProductContext)    
-    console.log(products)
+    const {state:{products}}  = useContext(ProductContext)    
+    // console.log(products)
   return (
     <section className='lg:container lg:mx-auto py-8 px-4'>
         <div className='row mb-8'>
@@ -26,6 +26,7 @@ const FeatureProducts = () => {
                             <div className='info text-center'>
                                 <h3 className='line-clamp-1'>{item.title}</h3>
                                 <p className='text-gray-500 capitalize'>{item.category} </p>
+                                <p className='text-gray-500 capitalize'>{item.id} </p>
                             </div>
                         </div>
                     </Link>

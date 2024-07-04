@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../../public/assets/logo.png";
 import { IoSearchOutline } from "react-icons/io5";
 // import { IoIosHeartEmpty } from "react-icons/io";
@@ -6,12 +6,22 @@ import { LuUser } from "react-icons/lu";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { ProductContext } from "../context/productContext";
+import SearchResult from "./SearchResult";
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const {state:{product,cart,wishlist}} = useContext(ProductContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const location = useLocation();
+  const [searchInput, setSearchInput] = useState("")
+  console.log(searchInput)
+  useEffect(()=>{
+    setSearchInput('');
+  },[location])
   const menu = [
     { pageName: "Home", path: "/" },
     { pageName: "Store", path: "/store" },
@@ -19,15 +29,16 @@ const Navbar = () => {
     { pageName: "Contact", path: "/contact" },
   ];
   const iconMenu = [
-    { icon: <PiShoppingCartLight />, path: "/" },
-    { icon: <LuUser />, path: "/" },
+    { icon: <LuUser />, path: "/wishlist", value:wishlist.length ||0},
+    { icon: <PiShoppingCartLight />, path: "/cart", value:cart.length || 0 },
   ];
+
   return (
     <section className="lg:container lg:mx-auto py-2 px-4">
       <div className="row grid grid-cols-3 mb-2 relative ">
         {/* <div className="row   flex justify-between items-center   mb-2 relative "> */}
-        <div className="column w-1/3 grid grid-flow-col content-center justify-start hidden lg:grid">
-          <input type="text" placeholder="Search for product " />
+        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center hidden lg:grid">
+          <input type="text" placeholder="Search for product" onChange={(e)=>setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
         <div className="column w-1/3 mobileMenu lg:hidden ">
@@ -42,25 +53,21 @@ const Navbar = () => {
         <div className="column  grid justify-center">
           <Link to="/"><img className="w-40 " src={logo} /></Link>
         </div>
-        <div className="column flex justify-end">extra</div>
-        <div className="column ">
+        <div className="column flex justify-end">
           <ul className="flex gap-4">
-            {/* {
-              iconMenu.map(({ item, index }) => (
+            {
+              iconMenu.map((item, index ) => (
                 <Link key={index} to={item.path}>
-                  <li className="flex items-center gap-2 text-primary-color text-2xl">
-                    {item.icon} {item.pageName}
+                  <li className="flex items-center gap-2 text-primary-color text-2xl relative">
+                    {item.icon} {item.pageName} {item.value? (<span className="text-xs flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null } 
                   </li>
                 </Link>
               ))
-            } */}
+            }
           </ul>
         </div>
         {/* mobile menu starts */}
-        <div
-          className={`absolute top-[100%] p-4 w-1/2 h-dvh bg-red-100 lg:hidden ${isMenuOpen ? "" : "hidden"
-            }`}
-        >
+        <div className={`absolute top-[100%] p-4 w-1/2 h-dvh bg-red-100 lg:hidden ${isMenuOpen ? "" : "hidden"}`}>
           <ul className="">
             {/*   
             {menu.map(({ pageName, path, icon }) => (
@@ -75,7 +82,6 @@ const Navbar = () => {
         {/* mobile menu ends */}
       </div>
       <hr />
-
       <div className=" row justify-center flex ">
         <div className="column lg:block hidden ">
           <ul className="flex ">
@@ -93,6 +99,7 @@ const Navbar = () => {
           <IoSearchOutline />
         </div>
       </div>
+      <SearchResult searchInput={searchInput}/>
     </section>
   );
 };

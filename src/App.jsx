@@ -8,6 +8,8 @@ import Deals from './pages/Deals.jsx'
 import Navbar from "./components/Navbar.jsx"
 import Footer from "./components/Footer.jsx"
 import SingleProduct from "./pages/SingleProduct.jsx"
+import Wishlist from "./pages/Wishlist.jsx"
+import Cart from "./pages/Cart.jsx"
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/deals" element={<Deals/>}/>
         <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

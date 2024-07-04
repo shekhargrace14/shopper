@@ -6,21 +6,24 @@ import { useParams } from "react-router-dom";
 import { ProductContext } from "../context/productContext";
 import { useContext} from "react";
 import { FaHeart } from "react-icons/fa";
+import { PiShoppingCartLight } from "react-icons/pi";
+
 
 // import API from '../data/data.json';
 
 // const data = "https://dummyjson.com/products";
 
 const SingleProduct = () => {
-    const {state:{products}} = useContext(ProductContext)
+    const {state:{products,cart,wishlist},dispatch} = useContext(ProductContext)
 
-    console.log(products)
+    // console.log(cart)
+    // console.log(wishlist)
     const {id} = useParams();
-    console.log(id)
-    const productId = Number(id);
-    console.log(productId)
+    // console.log(id)
+    // const productId = Number(id);
+    // console.log(productId)
     const product = products.find(p => p.id === id);
-    console.log(product)
+    // console.log(product)
 
     return (
         <>
@@ -49,8 +52,30 @@ const SingleProduct = () => {
                             </div>
                             <p className="">{product.description}</p>
                             <div className="sm:my-6 my-4 flex gap-4">
-                                <AddToCartBtn/>
-                                <button className="flex flex-cols items-center gap-2 bg-primary-color text-sm text-white  py-1 px-2 rounded "><FaHeart/> Wishlist </button>
+                                {
+                                    cart.some((p)=>p.id== product.id)?
+                                    <button 
+                                        disabled={cart.some((p)=>p.id==product.id)} 
+                                        onClick={()=>{dispatch({type:"ADD_TO_CART",payload:product})}} 
+                                        className="flex flex-cols items-center gap-2 border-2 border-primary-color text-sm text-primary-color py-1 px-2 rounded "> Already In Cart   
+                                    </button>
+                                    :
+                                    <button 
+                                        onClick={()=>{dispatch({type:"ADD_TO_CART",payload:product})}} 
+                                        className="flex flex-cols items-center gap-2 bg-primary-color text-sm text-white  py-1 px-2 rounded "><PiShoppingCartLight/> Add To Cart 
+                                    </button>
+                                }
+                                { 
+                                    wishlist.some((p)=>p.id == product.id)? 
+                                    <button 
+                                        disabled={wishlist.some((p)=>p.id==product.id)}
+                                        onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  
+                                        className="flex flex-cols items-center gap-2 border-2 border-primary-color text-sm text-primary-color  py-1 px-2 rounded "> Wishlisted 
+
+                                    </button>
+                                    :
+                                    <button onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  className="flex flex-cols items-center gap-2 bg-primary-color text-sm text-white  py-1 px-2 rounded "><FaHeart/> Wishlist </button>
+                                }
 
                             </div>
                             <p className="text-gray-500 text-xs">Vendor:<span className="text-primary-color text-sm"> Boostify Nest</span></p>

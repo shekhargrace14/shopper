@@ -4,7 +4,7 @@ import PopularProduct from '../components/PopularProducts';
 import Deal from '../components/Deal';
 import CTA from "../components/CTA";
 import Usps from '../components/Usps';
-import Header from "../components/Header";
+import Hero from "../components/Hero";
 // import { useProductContext } from "../context/productContext";
 
 
@@ -18,7 +18,7 @@ const Home = () => {
       {/* {myName} */}
 
 
-      <Header/>
+      <Hero/>
       <FeatureProducts />
 
       <section className='lg:container mx-auto px-4'>
