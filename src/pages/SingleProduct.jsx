@@ -51,18 +51,18 @@ const SingleProduct = () => {
                                 <span className="capitalize text-gray-600">{product.category}</span>
                             </div>
                             <p className="">{product.description}</p>
-                            <div className="sm:my-6 my-4 flex gap-4">
+                            <div className="sm:my-6 my-4 grid grid-cols-2 gap-4 ">
                                 {
                                     cart.some((p)=>p.id== product.id)?
                                     <button 
                                         disabled={cart.some((p)=>p.id==product.id)} 
                                         onClick={()=>{dispatch({type:"ADD_TO_CART",payload:product})}} 
-                                        className="flex flex-cols items-center gap-2 border-2 border-primary-color text-sm text-primary-color py-1 px-2 rounded "> Already In Cart   
+                                        className="flex flex-cols justify-center items-center gap-2 border-2 border-primary-color text-base text-primary-color py-1 px-2 rounded "> Already In Cart   
                                     </button>
                                     :
                                     <button 
                                         onClick={()=>{dispatch({type:"ADD_TO_CART",payload:product})}} 
-                                        className="flex flex-cols items-center gap-2 bg-primary-color text-sm text-white  py-1 px-2 rounded "><PiShoppingCartLight/> Add To Cart 
+                                        className="flex flex-cols justify-center items-center gap-2 bg-primary-color text-base text-white  py-2 px-4 rounded "><PiShoppingCartLight className="text-2xl"/> Add To Cart 
                                     </button>
                                 }
                                 { 
@@ -70,11 +70,16 @@ const SingleProduct = () => {
                                     <button 
                                         disabled={wishlist.some((p)=>p.id==product.id)}
                                         onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  
-                                        className="flex flex-cols items-center gap-2 border-2 border-primary-color text-sm text-primary-color  py-1 px-2 rounded "> Wishlisted 
+                                        className="flex flex-cols justify-center items-center gap-2 border-2 border-primary-color text-base text-primary-color  py-2 px-4 rounded "> Wishlisted 
 
                                     </button>
                                     :
-                                    <button onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  className="flex flex-cols items-center gap-2 bg-primary-color text-sm text-white  py-1 px-2 rounded "><FaHeart/> Wishlist </button>
+                                    <button 
+                                        onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  
+                                        className=" flex flex-cols  justify-center items-center gap-2 bg-primary-color text-sm text-white  py-2 px-4 rounded ">
+                                        <FaHeart className="text-2xl"/> Wishlist 
+
+                                    </button>
                                 }
 
                             </div>

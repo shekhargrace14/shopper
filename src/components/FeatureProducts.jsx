@@ -26,7 +26,7 @@ const FeatureProducts = () => {
                             <div className='info text-center'>
                                 <h3 className='line-clamp-1'>{item.title}</h3>
                                 <p className='text-gray-500 capitalize'>{item.category} </p>
-                                <p className='text-gray-500 capitalize'>{item.id} </p>
+                                {/* <p className='text-gray-500 capitalize'>{item.id} </p> */}
                             </div>
                         </div>
                     </Link>
