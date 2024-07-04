@@ -50,7 +50,6 @@ const SingleProduct = () => {
                                 <span className="capitalize text-gray-600">Rating : {product.rating}</span>
                                 <span className="capitalize text-gray-600">{product.category}</span>
                             </div>
-                            <p className="">{product.description}</p>
                             <div className="sm:my-6 my-4 grid grid-cols-2 gap-4 ">
                                 {
                                     cart.some((p)=>p.id== product.id)?
@@ -86,6 +85,7 @@ const SingleProduct = () => {
                             <p className="text-gray-500 text-xs">Vendor:<span className="text-primary-color text-sm"> Boostify Nest</span></p>
                             <p className="text-gray-500 text-xs">Collections:<span className="text-primary-color text-sm"> Headphone, Organic Kiwi, Vegetables </span></p>
                             <p className="text-gray-500 text-xs">Tags:<span className="text-primary-color text-sm"> Brown, Organic, Snack</span></p>
+                            <p className="mt-4">{product.description}</p>
 
                         </div>
                     </div>
