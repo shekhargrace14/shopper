@@ -8,9 +8,9 @@ import RelatedProducts from '../components/RelatedProducts'
 const Cart = () => {
   const { state: { cart, wishlist }, dispatch } = useContext(ProductContext)
   console.log(cart)
-  const [total,setTotal] = useState()
-  useEffect(()=>{
-    setTotal(cart.reduce((acc,curr)=>acc+Number(curr.price),0))
+  const [total, setTotal] = useState()
+  useEffect(() => {
+    setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0))
   })
   return (
     <div>
@@ -20,22 +20,23 @@ const Cart = () => {
           {cart.map((product, index) => (
             <div key={index}>
               <div className="row flex justify-between items-center gap-4 hover:bg-gray-100 p-4 ">
-
-                <figure className="column w-[30%] flex justify-center items-center">
-                  <img className="sm:w-[50%] md:w-[50%]  " src={product.productImage} />
+                <figure className="column sm:w-[30%] w-[30%] flex justify-center items-center">
+                  <img className="sm:w-[50%] md:w-[50%] w-full " src={product.productImage} />
                 </figure>
-                <h1 className="font-primary-font sm:text-4xl text-3xl font-bold sm:my-6 my-4">{product.title}</h1>
-                <div className="column grid grid-cols-2 items-center">
-                  <p className='font-primary-font sm:text-4xl text-2xl text-primary-color font-semibold'>${product.price} </p>
-                  <div className="price flex flex-wrap items-center justify-start gap-4 sm:my-6  my-2">
-                    <div className="flex gap-4">
-                      <p className='text-primary-font text-accent font-bold text-xs '>15% Off</p>
-                      {/* <del className='text-gray-500 text-1xl font-bold '>${(product.price + 5).toFixed(2)}</del> */}
-                      <del className='text-gray-500 text-1xl font-bold '>${product.price}</del>
+                <div className='sm:w-full w-[70%] grid sm:grid-cols-2 items-center'> 
+                  <h1 className="font-primary-font sm:text-2xl text-1xl font-bold ">{product.title}</h1>
+                  <div className="column price grid grid-cols-1 sm:grid-cols-2  items-center">
+                    <div className=" flex flex-wrap items-center justify-start gap-4 sm:my-6  my-2">
+                        <p className='text-primary-font text-accent font-bold text-xs '>15% Off</p>
+                        <del className='text-gray-500 text-sm font-bold '>${(Number(product.price)+5)}</del>
+                        {/* <del className='text-gray-500 text-sm font-bold '>${product.price}</del> */}
+                    </div>
+                    <div className='flex justify-between items-center'>
+                      <p className='font-primary-font sm:text-2xl text-1xl text-primary-color font-semibold'>${product.price} </p>
+                      <AiFillDelete className='cursor-pointer' onClick={() => { dispatch({ type: "REMOVE_FROM_CART", payload: product }) }} />
                     </div>
                   </div>
                 </div>
-                <AiFillDelete className='cursor-pointer' onClick={() => { dispatch({ type: "REMOVE_FROM_CART", payload: product }) }} />
               </div>
               <hr></hr>
             </div>
@@ -54,7 +55,7 @@ const Cart = () => {
           </div>
         </aside>
       </div>
-      <RelatedProducts/>
+      <RelatedProducts />
     </div>
   )
 }

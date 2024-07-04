@@ -11,7 +11,7 @@ import SearchResult from "./SearchResult";
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const {state:{product,cart,wishlist}} = useContext(ProductContext)
+  const { state: { product, cart, wishlist } } = useContext(ProductContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,9 +19,9 @@ const Navbar = () => {
   const location = useLocation();
   const [searchInput, setSearchInput] = useState("")
   console.log(searchInput)
-  useEffect(()=>{
+  useEffect(() => {
     setSearchInput('');
-  },[location])
+  }, [location])
   const menu = [
     { pageName: "Home", path: "/" },
     { pageName: "Store", path: "/store" },
@@ -29,19 +29,19 @@ const Navbar = () => {
     { pageName: "Contact", path: "/contact" },
   ];
   const iconMenu = [
-    { icon: <LuUser />, path: "/wishlist", value:wishlist.length ||0},
-    { icon: <PiShoppingCartLight />, path: "/cart", value:cart.length || 0 },
+    { icon: <LuUser />, path: "/wishlist", value: wishlist.length || 0 },
+    { icon: <PiShoppingCartLight />, path: "/cart", value: cart.length || 0 },
   ];
 
   return (
     <section className="lg:container lg:mx-auto py-2 px-4">
       <div className="row grid grid-cols-3 mb-2 relative ">
         {/* <div className="row   flex justify-between items-center   mb-2 relative "> */}
-        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center hidden lg:grid">
-          <input type="text" placeholder="Search for product" onChange={(e)=>setSearchInput(e.target.value)} />
+        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center hidden sm:grid">
+          <input type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
-        <div className="column w-1/3 mobileMenu lg:hidden ">
+        <div className="column w-1/3 mobileMenu sm:hidden ">
           <button onClick={toggleMenu}>
             {isMenuOpen ? (
               <FaTimes className="w-5 h-5 text-color_accent" />
@@ -56,50 +56,53 @@ const Navbar = () => {
         <div className="column flex justify-end">
           <ul className="flex gap-4">
             {
-              iconMenu.map((item, index ) => (
+              iconMenu.map((item, index) => (
                 <Link key={index} to={item.path}>
                   <li className="flex items-center gap-2 text-primary-color text-2xl relative">
-                    {item.icon} {item.pageName} {item.value? (<span className="text-xs flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null } 
+                    {item.icon} {item.pageName} {item.value ? (<span className="text-xs flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null}
                   </li>
                 </Link>
               ))
             }
           </ul>
         </div>
-        {/* mobile menu starts */}
-        <div className={`absolute top-[100%] p-4 w-1/2 h-dvh bg-red-100 lg:hidden ${isMenuOpen ? "" : "hidden"}`}>
-          <ul className="">
-            {/*   
-            {menu.map(({ pageName, path, icon }) => (
-                  <li key={pageName} className="flex items-center gap-2 p-2 text-primary-color text-xl">
-                <Link  path={path}>
-                    {icon} {pageName} 
-                </Link>
-                  </li>
-              ))} */}
-          </ul>
-        </div>
-        {/* mobile menu ends */}
+        
       </div>
       <hr />
-      <div className=" row justify-center flex ">
-        <div className="column lg:block hidden ">
-          <ul className="flex ">
-            {menu.map((item, index) => (
-              <Link key={index} to={item.path}>
-                <li className="px-4 py-2  grid-flow-col content-center justify-center gap-1">
-                  {item.icon} {item.pageName}
-                </li>
-              </Link>
-            ))}
-          </ul>
-        </div>
-        <div className="column grid grid-flow-col content-center justify-start lg:hidden ">
-          <input type="text" placeholder="Search for product " />
+      
+      <div className="row justify-center flex">
+      <div className="column lg:block sm:static hidden absolute h-full w-1/2 left-0 bg-gray-100">
+            <ul className="grid sm:grid-flow-col grid-flow-row">
+              {menu.map((item, index) => (
+                <Link key={index} to={item.path}>
+                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1">
+                    {item.icon} {item.pageName}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div> 
+        {isMenuOpen ? 
+          <div className="column lg:block sm:static absolute h-full w-1/2 left-0 bg-gray-100">
+            <ul className="grid sm:grid-flow-col grid-flow-row">
+              {menu.map((item, index) => (
+                <Link key={index} to={item.path}>
+                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1">
+                    {item.icon} {item.pageName}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div> 
+          :
+          ""
+        }
+        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center sm:hidden">
+          <input type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
       </div>
-      <SearchResult searchInput={searchInput}/>
+      <SearchResult searchInput={searchInput} />
     </section>
   );
 };
