@@ -25,7 +25,7 @@ const Footer=()=>{
                         </div>
                         <div>
                             <FaEnvelope className="inline text-primary-color"/>
-                            <p className="inline"> <span className="font-semibold">  Email:  </span> sale@Nest.com</p>
+                            <p className="inline"> <span className="font-semibold">  Email:  </span> sale@Shopper.com</p>
                         </div>
                         <div>
                             <FaClock className="inline text-primary-color"/>
@@ -60,7 +60,7 @@ const Footer=()=>{
 
                 </div>
                 <div className="flex justify-center">
-                    <p className="text-center">© 2024 Boostify Nest. <span className="text-primary-color"> Powered by ShalomTech.</span></p>
+                    <p className="text-center">© 2024 Shopper. <span className="text-primary-color"> Powered by ShalomTech.</span></p>
 
                 </div>
             </section>

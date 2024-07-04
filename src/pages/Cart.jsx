@@ -3,6 +3,7 @@ import { ProductContext } from '../context/productContext'
 import { PiShoppingCartLight } from 'react-icons/pi'
 import { FaHeart } from 'react-icons/fa'
 import { AiFillDelete } from 'react-icons/ai'
+import RelatedProducts from '../components/RelatedProducts'
 
 const Cart = () => {
   const { state: { cart, wishlist }, dispatch } = useContext(ProductContext)
@@ -14,7 +15,7 @@ const Cart = () => {
   return (
     <div>
 
-      <div className="lg:container lg:m-auto grid lg:grid-cols-[9fr,3fr] grid-flow-row  gap-4 px-4 ">
+      <div className="lg:container lg:m-auto min-h-[30vh]  grid lg:grid-cols-[9fr,3fr] grid-flow-row  gap-4 px-4 ">
         <main>
           {cart.map((product, index) => (
             <div key={index}>
@@ -53,6 +54,7 @@ const Cart = () => {
           </div>
         </aside>
       </div>
+      <RelatedProducts/>
     </div>
   )
 }
