@@ -83,7 +83,7 @@ const Navbar = () => {
             </ul>
           </div> 
         {isMenuOpen ? 
-          <div className="column lg:block sm:static absolute h-full w-1/2 left-0 bg-gray-100">
+          <div className="column lg:block sm:static absolute h-full w-1/2 left-0 bg-gray-100 z-40">
             <ul className="grid sm:grid-flow-col grid-flow-row">
               {menu.map((item, index) => (
                 <Link key={index} to={item.path}>
