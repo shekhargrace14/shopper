@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import logo from "../../public/assets/logo.png";
 import { IoSearchOutline } from "react-icons/io5";
 // import { IoIosHeartEmpty } from "react-icons/io";
-import { LuUser } from "react-icons/lu";
+import { LuHeart, LuShoppingCart, LuUser } from "react-icons/lu";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -29,16 +29,21 @@ const Navbar = () => {
     { pageName: "Contact", path: "/contact" },
   ];
   const iconMenu = [
-    { icon: <LuUser />, path: "/wishlist", value: wishlist.length || 0 },
-    { icon: <PiShoppingCartLight />, path: "/cart", value: cart.length || 0 },
+    { icon: <LuUser />, path: "/user",  },
+    { icon: <LuHeart />, path: "/wishlist", value: wishlist.length || 0 },
+    { icon: <LuShoppingCart/>, path: "/cart", value: cart.length || 0 },
   ];
 
   return (
     <section className="lg:container lg:mx-auto py-2 px-4">
       <div className="row grid grid-cols-3 mb-2 relative ">
         {/* <div className="row   flex justify-between items-center   mb-2 relative "> */}
-        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center hidden sm:grid">
+        {/* <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center hidden sm:grid">
           <input type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
+          <IoSearchOutline />
+        </div> */}
+        <div className="column w-full border-2 border-gray-200 rounded-2xl sm:flex justify-start items-center pr-2  hidden">
+          <input className="w-[94%] py-1 px-4 rounded-2xl" type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
         <div className="column w-1/3 mobileMenu sm:hidden ">
@@ -50,11 +55,11 @@ const Navbar = () => {
             )}
           </button>
         </div>
-        <div className="column  grid justify-center">
+        <div className="column  grid justify-center items-center">
           <Link to="/"><img className="w-40 " src={logo} /></Link>
         </div>
-        <div className="column flex justify-end">
-          <ul className="flex gap-4">
+        <div className="column flex justify-end items-center">
+          <ul className="flex gap-4 pr-4">
             {
               iconMenu.map((item, index) => (
                 <Link key={index} to={item.path}>
@@ -68,10 +73,11 @@ const Navbar = () => {
         </div>
 
       </div>
+
       <hr />
 
       <div className="row justify-center flex">
-        <div className="column lg:block sm:static hidden absolute h-full w-2/6 left-0 ">
+        <div className="column sm:block sm:static hidden absolute h-full  left-0 ">
           <ul className="grid justify-between sm:grid-flow-col grid-flow-row">
             {menu.map((item, index) => (
               <Link key={index} to={item.path}>
@@ -97,8 +103,8 @@ const Navbar = () => {
           :
           ""
         }
-        <div className="column w-1/3 grid grid-flow-col content-center justify-start items-center sm:hidden">
-          <input type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
+        <div className="column w-full border-2 border-gray-200 rounded-2xl flex justify-start items-center sm:hidden mt-2 ">
+          <input className="w-[94%] py-1 px-4 rounded-2xl" type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
       </div>

@@ -32,12 +32,16 @@ const SingleProduct = () => {
                 <main>
                     <div className="row grid md:grid-cols-2 gap-4 md:mb-12 ">
                         
-                        <figure className="column flex justify-center items-center">
+                        {/* <figure className="column flex justify-center items-center">
                             <img className="sm:w-[50%] md:w-[80%]  " src={product.productImage} />   
+                        </figure> */}
+                        <figure className='image flex justify-center items-center relative '>
+                            {/* <span className="bg-red-600 text-white text-xs h-fit py-1 px-2 absolute top-0 left-0 rounded-br-2xl" >-15%</span> */}
+                            <span className="bg-primary-color py-1 px-2 text-xs text-white font-semibold rounded absolute top-2 left-0">Sale Off</span>
+                            <img className='' src={product.productImage} />
                         </figure>
                         <div className="column">
-                            <span className="bg-primary-color py-1 px-2 text-xs text-white font-semibold rounded">Sale Off</span>
-                            <h1 className="font-primary-font sm:text-4xl text-3xl font-bold sm:my-6 my-4">{product.title}</h1>
+                            <h1 className="font-primary-font sm:text-4xl text-3xl font-bold sm:mb-6 mb-4">{product.title}</h1>
                             <div className="price flex flex-wrap items-center justify-start gap-4 sm:my-6  my-2">
                                 <p className='font-primary-font sm:text-4xl text-2xl text-primary-color font-semibold'>${product.price} </p>
                                 <div className="flex gap-4">
@@ -77,10 +81,8 @@ const SingleProduct = () => {
                                         onClick={()=>{dispatch({type:"ADD_TO_WISHLIST",payload:product})}}  
                                         className=" flex flex-cols  justify-center items-center gap-2 bg-primary-color text-sm text-white  py-2 px-4 rounded ">
                                         <FaHeart className="text-2xl"/> Wishlist 
-
                                     </button>
                                 }
-
                             </div>
                             <p className="text-gray-500 text-xs">Vendor:<span className="text-primary-color text-sm"> Boostify Nest</span></p>
                             <p className="text-gray-500 text-xs">Collections:<span className="text-primary-color text-sm"> Headphone, Organic Kiwi, Vegetables </span></p>
