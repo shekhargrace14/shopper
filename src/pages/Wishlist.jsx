@@ -18,7 +18,7 @@ const Wishlist = () => {
             <div key={index}>
               <div className="row flex justify-between items-center gap-4 hover:bg-gray-100 p-4 ">
                 <figure className="column sm:w-[30%] w-[30%] flex justify-center items-center">
-                  <img className="sm:w-[50%] md:w-[50%] w-full " src={product.productImage} />
+                  <img className="sm:w-[50%] md:w-[50%] w-full rounded-2xl" src={product.productImage} />
                 </figure>
                 <div className='sm:w-full w-[70%] grid sm:grid-cols-2 items-center'> 
                   <h1 className="font-primary-font sm:text-2xl text-1xl font-bold ">{product.title}</h1>

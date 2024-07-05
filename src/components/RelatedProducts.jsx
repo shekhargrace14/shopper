@@ -21,7 +21,7 @@ const RelatedProducts = () =>{
                     <div className='column rounded-2xl border-gray-100 border-2 overflow-hidden'>
                         <figure className='image flex justify-center relative h-[22vh]'>
                             <span className="bg-red-600 text-white text-xs h-fit py-1 px-2 absolute top-0 left-0 rounded-br-2xl" >-15%</span>
-                            <img className='' src={item.productImage} />
+                            <img className='rounded-2xl' src={item.productImage} />
                         </figure>
                         <div className='info p-4'>
                             <div className="flex justify-between">

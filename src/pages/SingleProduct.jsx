@@ -38,7 +38,7 @@ const SingleProduct = () => {
                         <figure className='image flex justify-center items-center relative '>
                             {/* <span className="bg-red-600 text-white text-xs h-fit py-1 px-2 absolute top-0 left-0 rounded-br-2xl" >-15%</span> */}
                             <span className="bg-primary-color py-1 px-2 text-xs text-white font-semibold rounded absolute top-2 left-0">Sale Off</span>
-                            <img className='sm:w-[50%] md:w-[70%]' src={product.productImage} />
+                            <img className='sm:w-[50%] md:w-[70%] rounded-2xl' src={product.productImage} />
                         </figure>
                         <div className="column">
                             <h1 className="font-primary-font sm:text-4xl text-3xl font-bold sm:mb-6 mb-4">{product.title}</h1>

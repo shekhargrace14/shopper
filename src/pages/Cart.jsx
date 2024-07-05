@@ -23,7 +23,7 @@ const Cart = () => {
               <div className="row flex justify-between items-center gap-4 hover:bg-gray-100 p-4 ">
               <Link className='sm:w-[30%] w-[30%] ' to={`/singleproduct/${product.id}`}>
                 <figure className="column flex justify-center items-center">
-                  <img className="sm:w-[50%] md:w-[50%] w-full " src={product.productImage} />
+                  <img className="sm:w-[50%] md:w-[50%] w-full rounded-2xl" src={product.productImage} />
                 </figure>
               </Link>
 

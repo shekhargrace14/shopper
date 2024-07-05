@@ -16,7 +16,7 @@ const Usps = ()=>{
                 uspsData.map((item,index)=>(
                     <div className='column bg-[#f4f6fa] rounded-2xl p-4 flex justify-center items-center gap-4 ' key={index}>
                         <div className='image flex justify-center '>
-                            <img className='w-[80%] ' src={item.icon} />
+                            <img className='w-[80%]  ' src={item.icon} />
                         </div>
                         
                         <div className="info ">

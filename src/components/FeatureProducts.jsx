@@ -23,7 +23,7 @@ const FeatureProducts = () => {
                                 {/* <Link key={index} to="SingleProduct.jsx"> */}
                                 <div className='bg-[#f7f7f7] column rounded-2xl border-gray-100 border-2 p-2' >
                                     <figure className='image flex justify-center h-[21vh]'>
-                                        <img className='' src={item.productImage || item.productImage} />
+                                        <img className='rounded-2xl' src={item.productImage || item.productImage} />
                                     </figure>
                                     <div className='info text-center'>
                                         <h3 className='line-clamp-1'>{item.title}</h3>
@@ -43,7 +43,7 @@ const FeatureProducts = () => {
                                 {/* <Link key={index} to="SingleProduct.jsx"> */}
                                 <div className='bg-[#f7f7f7] column rounded-2xl border-gray-100 border-2 p-2' >
                                     <figure className='image flex justify-center h-[21vh]'>
-                                        <img className='' src={item.productImage || item.productImage} />
+                                        <img className='rounded-2xl' src={item.productImage || item.productImage} />
                                     </figure>
                                     <div className='info text-center'>
                                         <h3 className='line-clamp-1'>{item.title}</h3>
@@ -62,7 +62,7 @@ const FeatureProducts = () => {
                                 {/* <Link key={index} to="SingleProduct.jsx"> */}
                                 <div className='bg-[#f7f7f7] column rounded-2xl border-gray-100 border-2 p-2' >
                                     <figure className='image flex justify-center h-[21vh]'>
-                                        <img className='' src={item.productImage || item.productImage} />
+                                        <img className='rounded-2xl' src={item.productImage || item.productImage} />
                                     </figure>
                                     <div className='info text-center'>
                                         <h3 className='line-clamp-1'>{item.title}</h3>

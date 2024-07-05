@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const Advertise = () => {
     return (
@@ -6,8 +6,9 @@ const Advertise = () => {
             <aside className="relative ">
                 <div className="absolute top-4 my-4 sticky">
                     <figure>
-                        <img src="../assets/ad/ad-01.webp" />
+                        <img className='rounded-2xl' src="../assets/ad/ad-01.webp" />
                     </figure>
+
                 </div>
             </aside>
 
