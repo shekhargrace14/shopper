@@ -23,7 +23,7 @@ const Home = () => {
       <FeatureProducts />
 
       <PopularProduct/>
-      <Deal/>
+      {/* <Deal/> */}
       <CTA/>
       <Usps/>
 

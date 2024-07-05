@@ -56,7 +56,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="column  grid justify-center items-center">
-          <Link to="/"><img className="w-40 " src={logo} /></Link>
+          <Link to="/" ><img className="w-40 " src={logo} onClick={isMenuOpen} /></Link>
         </div>
         <div className="column flex justify-end items-center">
           <ul className="flex gap-4 pr-4">
@@ -92,8 +92,8 @@ const Navbar = () => {
           <div className="column lg:block sm:static absolute h-full w-1/2 left-0 bg-gray-100 z-40">
             <ul className="grid sm:grid-flow-col grid-flow-row">
               {menu.map((item, index) => (
-                <Link key={index} to={item.path}>
-                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1">
+                <Link key={index} to={item.path} >
+                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1"  onClick={isMenuOpen}>
                     {item.icon} {item.pageName}
                   </li>
                 </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
           :
           ""
         }
-        <div className="column w-full border-2 border-gray-200 rounded-2xl flex justify-start items-center sm:hidden mt-2 ">
+        <div className="column w-full border-2 border-gray-200 rounded-2xl flex justify-start items-center sm:hidden my-2 ">
           <input className="w-[94%] py-1 px-4 rounded-2xl" type="text" placeholder="Search for product" onChange={(e) => setSearchInput(e.target.value)} />
           <IoSearchOutline />
         </div>
