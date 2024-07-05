@@ -9,6 +9,8 @@ const productReducer = (state, action) => {
             return{...state,wishlist:[...state.wishlist,{...action.payload,qty:1}]}
         case("REMOVE_FROM_CART"):
             return{...state,cart:state.cart.filter(c=>c.id !==action.payload.id)}
+        case("REMOVE_FROM_WISHLIST"):
+            return{...state,wishlist:state.wishlist.filter(c=>c.id !==action.payload.id)}
         default:
             break;
     }

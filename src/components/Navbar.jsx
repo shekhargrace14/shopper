@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import logo from "../../public/assets/logo.png";
 import { IoSearchOutline } from "react-icons/io5";
 // import { IoIosHeartEmpty } from "react-icons/io";
-import { LuHeart, LuShoppingCart, LuUser } from "react-icons/lu";
-import { PiShoppingCartLight } from "react-icons/pi";
+import { LuHeart, LuShoppingCart, } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { ProductContext } from "../context/productContext";
@@ -11,7 +10,7 @@ import SearchResult from "./SearchResult";
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const { state: { product, cart, wishlist } } = useContext(ProductContext)
+  const { state: { cart, wishlist } } = useContext(ProductContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,12 +23,13 @@ const Navbar = () => {
   }, [location])
   const menu = [
     { pageName: "Home", path: "/" },
-    { pageName: "Store", path: "/store" },
-    { pageName: "Deals", path: "/deals" },
+    { pageName: "Grocery", path: "/grocery" },
+    { pageName: "Clothes", path: "/clothes" },
+    { pageName: "Furniture", path: "/furniture" },
     { pageName: "Contact", path: "/contact" },
   ];
   const iconMenu = [
-    { icon: <LuUser />, path: "/user",  },
+    // { icon: <LuUser />, path: "/user",  },
     { icon: <LuHeart />, path: "/wishlist", value: wishlist.length || 0 },
     { icon: <LuShoppingCart/>, path: "/cart", value: cart.length || 0 },
   ];
@@ -109,6 +109,8 @@ const Navbar = () => {
         </div>
       </div>
       <SearchResult searchInput={searchInput} />
+      <hr className="mb-4"></hr>
+
     </section>
   );
 };
