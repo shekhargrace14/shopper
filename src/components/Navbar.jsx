@@ -56,7 +56,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="column  grid justify-center items-center">
-          <Link to="/" ><img className="w-40 " src={logo} onClick={isMenuOpen} /></Link>
+          <Link to="/" ><img className="w-40 " src={logo} /></Link>
         </div>
         <div className="column flex justify-end items-center">
           <ul className="flex gap-4 pr-4">
@@ -93,7 +93,7 @@ const Navbar = () => {
             <ul className="grid sm:grid-flow-col grid-flow-row">
               {menu.map((item, index) => (
                 <Link key={index} to={item.path} >
-                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1"  onClick={isMenuOpen}>
+                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1"  >
                     {item.icon} {item.pageName}
                   </li>
                 </Link>
