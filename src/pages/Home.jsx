@@ -7,6 +7,8 @@ import Usps from '../components/Usps';
 import Hero from "../components/Hero";
 import PODS from "../components/PODS";
 // import { useProductContext } from "../context/productContext";
+import HeroBanner from '../../public/assets/bg/bg-img-4.jpg'
+
 
 
 // import image1 from "../assets/slider-1-1.webp";
@@ -19,7 +21,8 @@ const Home = () => {
       {/* {myName} */}
 
 
-      <Hero/>
+      <Hero HeroBanner={HeroBanner} title={"Welcome to Shopper, Your personal Store"} paragraph={"Sign Up to get best deals in town"} formButton={"submit"}/>
+      
       <FeatureProducts />
 
       <PopularProduct/>

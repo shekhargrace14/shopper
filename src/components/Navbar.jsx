@@ -63,7 +63,7 @@ const Navbar = () => {
             {
               iconMenu.map((item, index) => (
                 <Link key={index} to={item.path}>
-                  <li className="flex items-center gap-2 text-primary-color text-2xl relative">
+                  <li className=" text-xs  items-center gap-2 text-primary-color text-2xl relative">
                     {item.icon} {item.pageName} {item.value ? (<span className="text-xs flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null}
                   </li>
                 </Link>

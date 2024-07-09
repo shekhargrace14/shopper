@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import { ProductContext } from '../context/productContext'
 import { Link } from 'react-router-dom'
+import HeroBanner from '../../public/assets/bg/bg-img-4.jpg'
+import Hero from '../components/Hero'
 
 const Furniture = () => {
   const { state: { products } } = useContext(ProductContext)
   // console.log(products)
   return (
+    <>
+    <Hero HeroBanner={HeroBanner} title={"Furniture"} paragraph={null} formButton={null} />
+
     <section className='lg:container lg:mx-auto py-8 px-4'>
       <div className='row mb-8'>
         <div className='column'>
@@ -32,6 +37,8 @@ const Furniture = () => {
         }
       </div>
     </section>
+    </>    
+
   )
 }
 
