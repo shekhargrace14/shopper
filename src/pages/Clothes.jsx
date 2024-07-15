@@ -10,7 +10,7 @@ const Clothes = () => {
   // console.log(products)
   return (
     <>
-    <Hero HeroBanner={HeroBanner} title={"Cloths"} paragraph={null} formButton={null}/>
+    {/* <Hero HeroBanner={HeroBanner} title={"Cloths"} paragraph={null} formButton={null}/> */}
     <section className='lg:container lg:mx-auto py-8 px-4'>
       <div className='row mb-8'>
         <div className='column'>

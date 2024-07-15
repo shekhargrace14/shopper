@@ -20,8 +20,8 @@ const Home = () => {
     <div>
       {/* {myName} */}
 
-
-      <Hero HeroBanner={HeroBanner} title={"Welcome to Shopper, Your personal Store"} paragraph={"Sign Up to get best deals in town"} formButton={"submit"}/>
+      <Hero/>
+      {/* <Hero HeroBanner={HeroBanner} title={"Welcome to Shopper, Your personal Store"} paragraph={"Sign Up to get best deals in town"} formButton={"submit"}/> */}
       
       <FeatureProducts />
 

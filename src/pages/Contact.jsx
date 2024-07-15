@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 const Contact = () => {
   return (
     <div>
-      <Hero HeroBanner={HeroBanner} title={"Contact"} paragraph={null} formButton={null} />
+      {/* <Hero HeroBanner={HeroBanner} title={"Contact"} paragraph={null} formButton={null} /> */}
     </div>
 
   )
