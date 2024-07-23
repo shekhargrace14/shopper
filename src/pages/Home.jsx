@@ -21,7 +21,7 @@ const Home = () => {
       {/* {myName} */}
 
       {/* <Hero/> */}
-      <section className={`bg-[url(../../public/assets/bg/bg-img-4.jpg)] min-h-[30vh] bg-cover bg-no-repeat bg-bottom md:py-16 py-8  md:px-24 px-4 rounded-2xl mx-4" `}>
+      <section className={`bg-[url(../public/assets/bg/bg-img-4.jpg)] min-h-[30vh] bg-cover bg-no-repeat bg-bottom md:py-16 py-8  md:px-24 px-4 rounded-2xl mx-4" `}>
       <div className="container mx-auto top h-fit ">
         <div className='row flex'>
           <div className='column sm:w-8/12 w-12/12 '>
