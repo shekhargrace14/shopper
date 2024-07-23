@@ -83,16 +83,16 @@ const Navbar = () => {
         <div className="column sm:block sm:static hidden absolute h-full  left-0 ">
           <ul className="grid justify-between sm:grid-flow-col grid-flow-row">
             {menu.map((item, index) => (
-              <li key={index} onClick={toggleMenu} className="px-4 py-2 rounded-2xl sm:grid-flow-col items-center justify-center gap-1 hover:bg-gray-100">
-                <Link to={item.path}>
+                <Link key={index} to={item.path} className=" my-2 px-4 py-2 rounded-2xl sm:grid-flow-col items-center justify-center gap-1 hover:bg-gray-100">
+              <li   className=" ">
                   {item.pageName}
-                </Link>
               </li>
+                </Link>
             ))}
           </ul>
         </div>
         {menuOpen ?
-          <div className="column lg:block sm:static absolute h-full w-full left-0 bg-gray-100 z-40">
+          <div className="column lg:block sm:static absolute h-full w-full left-0 bg-gray-100 z-40 hidden">
             <ul className="grid sm:grid-flow-col grid-flow-row text-center">
               {menu.map((item, index) => (
                 <Link key={index} to={item.path} >
