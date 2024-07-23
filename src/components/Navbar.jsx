@@ -11,9 +11,11 @@ import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const { state: { cart, wishlist } } = useContext(ProductContext)
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setMenuOpen(!menuOpen);
+    console.log("toggled")
+
   };
   const location = useLocation();
   const [searchInput, setSearchInput] = useState("")
@@ -26,12 +28,12 @@ const Navbar = () => {
     { pageName: "Grocery", path: "/grocery" },
     { pageName: "Clothes", path: "/clothes" },
     { pageName: "Furniture", path: "/furniture" },
-    { pageName: "Contact", path: "/contact" },
+    // { pageName: "Contact", path: "/contact" },
   ];
   const iconMenu = [
     // { icon: <LuUser />, path: "/user",  },
     { icon: <LuHeart />, path: "/wishlist", value: wishlist.length || 0 },
-    { icon: <LuShoppingCart/>, path: "/cart", value: cart.length || 0 },
+    { icon: <LuShoppingCart />, path: "/cart", value: cart.length || 0 },
   ];
 
   return (
@@ -48,7 +50,7 @@ const Navbar = () => {
         </div>
         <div className="column w-1/3 mobileMenu sm:hidden ">
           <button onClick={toggleMenu}>
-            {isMenuOpen ? (
+            {menuOpen ? (
               <FaTimes className="w-5 h-5 text-color_accent" />
             ) : (
               <FaBars className="w-5 h-5 text-color_accent" />
@@ -56,17 +58,18 @@ const Navbar = () => {
           </button>
         </div>
         <div className="column  grid justify-center items-center">
-          <Link to="/" ><img className="w-40 " src={logo} /></Link>
+          {/* <Link to="/" ><img className="w-40 " src={logo} /></Link> */}
+          <img className='cursor-pointer' src={logo} alt='logo' onClick={() => !toggleMenu ? setMenuOpen(true) : setMenuOpen(false)} />
         </div>
         <div className="column flex justify-end items-center">
           <ul className="flex gap-4 pr-4">
             {
               iconMenu.map((item, index) => (
-                <Link key={index} to={item.path}>
-                  <li className=" text-xs  items-center gap-2 text-primary-color text-2xl relative">
-                    {item.icon} {item.pageName} {item.value ? (<span className="text-xs flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null}
-                  </li>
-                </Link>
+                <li key={index} className=" items-center gap-2 text-primary-color text-2xl   relative">
+                  <Link to={item.path}>
+                    {item.icon} {item.pageName} {item.value ? (<span className=" flex items-center justify-center text-white text-center w-5 h-5 rounded-full leading-none bg-primary-color absolute top-[-4px] right-[-12px]"> {item.value}</span>) : null}
+                  </Link>
+                </li>
               ))
             }
           </ul>
@@ -80,20 +83,20 @@ const Navbar = () => {
         <div className="column sm:block sm:static hidden absolute h-full  left-0 ">
           <ul className="grid justify-between sm:grid-flow-col grid-flow-row">
             {menu.map((item, index) => (
-              <Link key={index} to={item.path}>
-                <li className="px-4 py-2 rounded-2xl sm:grid-flow-col items-center justify-center gap-1 hover:bg-gray-100">
+              <li key={index} onClick={toggleMenu} className="px-4 py-2 rounded-2xl sm:grid-flow-col items-center justify-center gap-1 hover:bg-gray-100">
+                <Link to={item.path}>
                   {item.pageName}
-                </li>
-              </Link>
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
-        {isMenuOpen ?
-          <div className="column lg:block sm:static absolute h-full w-1/2 left-0 bg-gray-100 z-40">
-            <ul className="grid sm:grid-flow-col grid-flow-row">
+        {menuOpen ?
+          <div className="column lg:block sm:static absolute h-full w-full left-0 bg-gray-100 z-40">
+            <ul className="grid sm:grid-flow-col grid-flow-row text-center">
               {menu.map((item, index) => (
                 <Link key={index} to={item.path} >
-                  <li className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1"  >
+                  <li onClick={toggleMenu} className="px-4 py-2 sm:grid-flow-col content-center justify-center gap-1"  >
                     {item.icon} {item.pageName}
                   </li>
                 </Link>

@@ -43,17 +43,14 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-
               <hr></hr>
             </div>
           ))}
-
-
         </main>
         <aside className="relative ">
           <div className="absolute sticky">
             <div className="summary  bg-gray-100  text-black p-4">
-              <h3 className="text-2xl leading-normal">Summary</h3>
+                <h3 className="text-2xl leading-normal">Summary</h3>
               <p className="text-base ">SubTotal ({cart.length}) item </p>
               <p className="text-base mt-4">Total : {total} </p>
               <button className='bg-blue-900 py-1 px-2 text-white rounded text-base mt-4' disabled={cart.length === 0}>Proceed To CheckOut</button>
