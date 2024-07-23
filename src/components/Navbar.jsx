@@ -59,7 +59,7 @@ const Navbar = () => {
         </div>
         <div className="column  grid justify-center items-center">
           {/* <Link to="/" ><img className="w-40 " src={logo} /></Link> */}
-          <img className='cursor-pointer' src={logo} alt='logo' onClick={() => !toggleMenu ? setMenuOpen(true) : setMenuOpen(false)} />
+          <img className='cursor-pointer w-40' src={logo} alt='logo' onClick={() => !toggleMenu ? setMenuOpen(true) : setMenuOpen(false)} />
         </div>
         <div className="column flex justify-end items-center">
           <ul className="flex gap-4 pr-4">
